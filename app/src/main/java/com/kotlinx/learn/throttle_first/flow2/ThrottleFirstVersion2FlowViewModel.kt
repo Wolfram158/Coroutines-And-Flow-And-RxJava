@@ -44,7 +44,7 @@ class ThrottleFirstVersion2FlowViewModel : ViewModel() {
 }
 
 /**
- * See also: [](https://github.com/Kotlin/kotlinx.coroutines/issues/1446?ysclid=md90g1nc3y391135629)
+ * See also: [](https://github.com/Kotlin/kotlinx.coroutines/issues/1446)
  */
 fun <T> Flow<T>.throttleFirst(windowDuration: Long): Flow<T> = flow {
     var windowStartTime = System.currentTimeMillis()
