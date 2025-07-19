@@ -1,7 +1,6 @@
 package com.kotlinx.learn.throttle_first.rx
 
 import android.graphics.Bitmap
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
@@ -50,13 +49,13 @@ fun ThrottleFirstRxScreen(viewModel: ThrottleFirstRxViewModel = viewModel()) {
         }
     }
 
-    DisposableEffect(Unit) {
+    LaunchedEffect(Unit) {
         val disposable = viewModel.loadBitmaps(5000)
 
-        onDispose {
-            Log.e("DISPOSE", "Dispose")
-
-            disposable.dispose()
-        }
+//        onDispose {
+//            Log.e("DISPOSE", "Dispose")
+//
+//            disposable.dispose()
+//        }
     }
 }
